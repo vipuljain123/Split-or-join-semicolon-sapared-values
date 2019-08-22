@@ -21,9 +21,13 @@ OUTPUT
 
 use List::MoreUtils qw/ uniq /;
 
+
+$INfilename = $ARGV[0];
+$OUTfilename = $ARGV[1];
+
 $fname="j";
-unless(open(I,"$fname.txt")){
-print "\n\nCan't open file aaa.txt";
+unless(open(I,"$INfilename")){
+print "\n\nCan't open input file $INfilename";
 }
 
 @data=<I>;
@@ -79,15 +83,13 @@ $result[$k]=$uline."\t".$r2;
 $k++;
 }
 
-unless(open(O,">result_$fname.txt")){
-print "\n\nCan't open file...";
+unless(open(O,">$OUTfilename")){
+print "\n\nCan't open output file...";
 }
 
 print O @result;
 
 exit;
-
-
 
 
 
